@@ -41,8 +41,8 @@ mod tests {
     #[test]
     fn test_iterate_into_string() {
         let words = vec!["hello", " ", "world"];
-        let mapped_word: Vec<String> = words.into_iter().map(|s| capitalize_first(s));
-        let capitalized_words: Vec<String> = mapped_word.flatten().collect();
+        let capitalized_words: Vec<String> = words.into_iter().map(|s| capitalize_first(s)).filter(|s| s.len() > 2).collect();
+        // let capitalized_words: Vec<String> = mapped_word.flatten().collect();
         assert_eq!(capitalized_words, ["Hello", "World"]);
         // assert_eq!(capitalized_words, "Hello World");
     }
